@@ -1,0 +1,27 @@
+class Solution {
+    public String gcdOfStrings(String str1, String str2) {
+
+        // if adding both the strings aren't equal then return empty string
+        // ex: str1 = LEET, str2 = CODE
+        // (str1+str2) = LEETCODE and (str2+str1) = CODELEET - are not equal then
+        // return empty string
+       if(!(str1 + str2).equals(str2 + str1)) {
+            return "";
+       }
+
+       int n1 = str1.length();
+       int n2 = str2.length();
+
+       String result = str1.substring(0, gcd(n1, n2));
+       return result;
+    }
+
+    // function to calculate gcd
+    int gcd(int n1, int n2) {
+        if(n2 == 0) {
+            return n1;
+        }
+
+        return gcd(n2, n1 % n2);
+    }
+}
